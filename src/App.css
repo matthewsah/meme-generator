@@ -64,7 +64,34 @@ main {
   border: none;
 }
 
+.meme {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
 .meme--image {
-  width: 100%;
+  max-width: 100%;
   max-height: 36rem;
+  min-width: 50%;
+}
+
+.meme--top-text,
+.meme--bottom-text {
+  font-size: 6rem;
+  color: white;
+  position: absolute;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  max-width: 80%;
+  overflow: wrap;
+  overflow-wrap: break-word;
+}
+
+.meme--top-text {
+  top: -15%;
+}
+
+.meme--bottom-text {
+  bottom: -10%;
 }
