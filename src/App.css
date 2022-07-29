@@ -105,9 +105,11 @@ main {
 
   @media (max-width: 1200px) {
     .meme--top-text {
+      font-size: 4rem;
       top: -10%;
     }
     .meme--bottom-text {
+      font-size: 4rem;
       bottom: -10%;
     }
   }
