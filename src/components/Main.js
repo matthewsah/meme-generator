@@ -1,12 +1,12 @@
 import "../App.css";
 import React from "react";
-import memesData from "../data/memesData.tsx";
+// import memesData from "../data/memesData.tsx";
 
 export default function Main() {
   function setMemeUrl() {
-    const memesArray = memesData["data"]["memes"];
-    const memeIndex = Math.floor(Math.random() * memesArray.length);
-    const url = memesArray[memeIndex].url;
+    // const memesArray = memesData["data"]["memes"];
+    const memeIndex = Math.floor(Math.random() * allMemes.length);
+    const url = allMemes[memeIndex].url;
     setMemeData((prevMeme) => ({
       ...prevMeme,
       image: url,
@@ -22,10 +22,28 @@ export default function Main() {
   }
 
   const [meme, setMemeData] = React.useState({
-    image: memesData["data"]["memes"][Math.floor(Math.random() * 100)].url,
+    image: "https://i.imgflip.com/30b1gx.jpg",
     topText: "",
     bottomText: "",
   });
+
+  const [allMemes, setAllMemes] = React.useState([]);
+
+  // React.useEffect(()=> {
+  //   fetch("https://api.imgflip.com/get_memes")
+  //     .then(res => res.json())
+  //     .then(data => setAllMemes(data.data.memes)
+  //     .then(a => console.log('ran')));
+  // }, [])
+
+  React.useEffect(() => {
+    async function getMemes() {
+      const res = await fetch("https://api.imgflip.com/get_memes");
+      const data = await res.json();
+      setAllMemes(data.data.memes)
+    }
+    getMemes()
+  })
 
   return (
     <main>

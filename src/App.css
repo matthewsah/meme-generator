@@ -42,7 +42,7 @@ main {
 
 .form {
   display: grid;
-  grid-template: 4rem 4rem / 1fr 1fr;
+  grid-template: 1fr 1fr;
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
@@ -86,12 +86,38 @@ main {
   max-width: 80%;
   overflow: wrap;
   overflow-wrap: break-word;
+  font-weight: 600;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-.meme--top-text {
-  top: -15%;
-}
+@media screen {
+  @media (max-width: 700px) {
+    .meme--top-text {
+      font-size: 3rem;
+      top: -5%;
+    }
+    .meme--bottom-text {
+      font-size: 3rem;
+      bottom: -5%;
+    }
+  }
 
-.meme--bottom-text {
-  bottom: -10%;
+  @media (max-width: 1200px) {
+    .meme--top-text {
+      top: -10%;
+    }
+    .meme--bottom-text {
+      bottom: -10%;
+    }
+  }
+
+  @media (max-width: 2800px) {
+    .meme--top-text {
+      top: -15%;
+    }
+    .meme--bottom-text {
+      bottom: -15%;
+    }
+  }
 }
